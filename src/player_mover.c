@@ -6,7 +6,7 @@
 /*   By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 12:34:16 by meltremb          #+#    #+#             */
-/*   Updated: 2023/02/07 11:34:11 by meltremb         ###   ########.fr       */
+/*   Updated: 2023/02/07 14:11:21 by meltremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void	is_item_or_door(t_data *d)
 
 	x = d->player_x / d->texture_size;
 	y = d->player_y / d->texture_size;
+	print_nb_moves(d);
 	if (d->map[y][x] == 'C')
 	{
 		d->chest_count--;

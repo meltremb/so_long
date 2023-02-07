@@ -6,7 +6,7 @@
 /*   By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 10:23:38 by meltremb          #+#    #+#             */
-/*   Updated: 2023/02/07 11:34:11 by meltremb         ###   ########.fr       */
+/*   Updated: 2023/02/07 13:52:52 by meltremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ int	ft_exit(int exit_state, char *message)
 void	init_data(t_data *d)
 {
 	d->texture_size = 128;
+	d->nb_moves = 0;
 	d->chest_count = 0;
 	d->exit_count = 0;
 	d->start_count = 0;
