@@ -6,7 +6,7 @@
 /*   By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 11:11:29 by meltremb          #+#    #+#             */
-/*   Updated: 2023/02/07 12:38:09 by meltremb         ###   ########.fr       */
+/*   Updated: 2023/02/07 14:06:40 by meltremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_data
 	int			chest_count;
 	int			exit_count;
 	int			start_count;
+	int			nb_moves;
 	mlx_t		*mlx;
 	char		**map;
 	char		**map_copy;
@@ -65,5 +66,8 @@ void		*ft_calloc(size_t count, size_t size);
 int			ft_exit(int exit_state, char *message);
 int			is_valid_char(char c);
 char		*ft_add_newline(char *s1, char *s2);
+int			printc(char c);
+int			printd(int nb);
+void		print_nb_moves(t_data *d);
 
 #endif
