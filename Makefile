@@ -6,7 +6,7 @@
 #    By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 11:14:16 by meltremb          #+#    #+#              #
-#    Updated: 2023/02/07 13:58:15 by meltremb         ###   ########.fr        #
+#    Updated: 2023/02/14 13:16:35 by meltremb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,17 +61,22 @@ OBJS	=	$(patsubst $(SRCDIR)%.c,$(OBJDIR)%.o,$(SRCS))
 #                                 TARGETS                                      #
 #------------------------------------------------------------------------------#
 
-all: $(MLXDIR)/$(MLX42) $(NAME)
+all: $(NAME)
 
 # Generates output file
 $(NAME): $(OBJS)
 	$(HIDE)$(CC) $(CFLAGS) -o $@ $^ $(LIBMLX)
-# @echo"$(GREEN)Files compiled$(DEF_COLOR)"
 
 $(OBJS): $(OBJDIR)%.o : $(SRCDIR)%.c
 	$(HIDE)mkdir -p $(OBJDIR)
 	$(HIDE)$(CC) $(CFLAGS) -c $< -o $@
 
+brew:
+	curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh | zsh
+
+glfw:
+	brew install glfw
+	
 # Removes objects
 clean:
 	$(HIDE)$(RM) $(OBJS)
