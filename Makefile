@@ -6,7 +6,7 @@
 #    By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 11:14:16 by meltremb          #+#    #+#              #
-#    Updated: 2023/02/14 13:16:35 by meltremb         ###   ########.fr        #
+#    Updated: 2023/02/14 13:20:09 by meltremb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,7 +79,7 @@ glfw:
 	
 # Removes objects
 clean:
-	$(HIDE)$(RM) $(OBJS)
+	$(HIDE)$(RM) $(OBJDIR)/$(OBJS)
 
 # Removes objects and executables
 fclean: clean
