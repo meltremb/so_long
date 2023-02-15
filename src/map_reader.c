@@ -6,22 +6,49 @@
 /*   By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 12:36:40 by meltremb          #+#    #+#             */
-/*   Updated: 2023/02/15 10:36:13 by meltremb         ###   ########.fr       */
+/*   Updated: 2023/02/15 11:45:30 by meltremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int	ber_check(char *map_name)
+char	*ft_strrchr(const char *s, int c)
 {
-	int	i;
+	const char	*temp;
+
+	temp = s;
+	while (*s)
+		s++;
+	while (s >= temp)
+		if (*s-- == (char) c)
+			return ((char *)s + 1);
+	return (NULL);
+}
+
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t	i;
 
 	i = 0;
-	while (map_name[i] != '\0')
+	while ((s1[i] != '\0' || s2[i] != '\0') && i < n)
+	{
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 		i++;
-	if (map_name[i - 1] == 'r' && map_name[i - 2] == 'e'
-		&& map_name[i - 3] == 'b' && map_name[i - 4] == '.')
-		return (1);
+	}
+	return (0);
+}
+
+int	ber_check(char *map_name)
+{
+	char	*dot;
+
+	dot = ft_strrchr(map_name, '.');
+	if (ft_strncmp(dot, ".ber", 4) == 0)
+			return (1);
+	//if (map_name[i - 1] == 'r' && map_name[i - 2] == 'e'
+	//	&& map_name[i - 3] == 'b' && map_name[i - 4] == '.')
+	//	return (1);
 	return (0);
 }
 
