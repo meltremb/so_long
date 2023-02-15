@@ -6,7 +6,7 @@
 /*   By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 12:36:40 by meltremb          #+#    #+#             */
-/*   Updated: 2023/02/15 09:13:55 by meltremb         ###   ########.fr       */
+/*   Updated: 2023/02/15 10:36:13 by meltremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ int	read_map(int fd, t_data *d, char **argv)
 {
 	int		i;
 
-	if (ber_check(argv[1]) == 0)
-		ft_exit(d, 0, "ERROR\nThe map isn't a .ber file!");
 	d->max_x = ft_strlen(get_next_line(fd)) - 1;
 	i = 1;
 	while (get_next_line(fd) != NULL)
@@ -47,6 +45,8 @@ int	read_map(int fd, t_data *d, char **argv)
 			d->map[i] = ft_add_newline(d->map[i], "\n");
 		if ((ft_strlen(d->map[i])) - 1 != d->max_x)
 			ft_exit(d, 0, "ERROR\nThe map isn't a rectangle!\n");
+		if (ft_strlen(d->map[i]) < 3 || d->max_y < 3)
+			ft_exit(d, 0, "ERROR\nYour map straight up sucks!\n");
 		d->map_copy[i] = ft_strdup(d->map[i]);
 	}
 	close(fd);

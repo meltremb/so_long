@@ -6,7 +6,7 @@
 /*   By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 11:11:29 by meltremb          #+#    #+#             */
-/*   Updated: 2023/02/15 08:52:55 by meltremb         ###   ########.fr       */
+/*   Updated: 2023/02/15 10:30:47 by meltremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ typedef struct s_data
 	mlx_image_t	*door;
 }				t_data;
 
-void		ft_free(t_data *d);
+void		free_and_null(void *ptr);
+void		ft_free_all(t_data *d);
 mlx_image_t	*make_image(t_data *d, char *path);
 void		print_background(t_data *d, int x, int y);
 void		print_foreground(t_data *d, int x, int y);
@@ -65,7 +66,7 @@ void		ft_bzero(void *s, size_t n);
 char		*ft_strdup(char *s1);
 void		*ft_calloc(size_t count, size_t size);
 int			ft_exit(t_data *d, int exit_state, char *message);
-int			is_valid_char(char c);
+int			is_valid_char(t_data *d);
 char		*ft_add_newline(char *s1, char *s2);
 int			printc(char c);
 int			printd(int nb);

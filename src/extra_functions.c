@@ -6,7 +6,7 @@
 /*   By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 11:45:43 by meltremb          #+#    #+#             */
-/*   Updated: 2023/02/15 09:07:56 by meltremb         ###   ########.fr       */
+/*   Updated: 2023/02/15 10:34:20 by meltremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,27 @@ void	*ft_calloc(size_t count, size_t size)
 	return (ptr);
 }
 
-int	is_valid_char(char c)
+int	is_valid_char(t_data *d)
 {
-	if (c == '0' || c == '1' || c == 'E' || c == 'e' || c == 'P'
-		|| c == 'p' || c == 'C' || c == 'c' || c == '\n')
-		return (1);
-	return (0);
+	int		x;
+	int		y;
+	char	c;
+
+	y = -1;
+	while (++y < d->max_y)
+	{
+		x = -1;
+		while (++x < d->max_x)
+		{
+			c = d->map_copy[y][x];
+			if (c == '0' || c == '1' || c == 'E' || c == 'e' || c == 'P'
+				|| c == 'p' || c == 'C' || c == 'c' || c == '\n')
+				continue ;
+			else
+				return (0);
+		}
+	}
+	return (1);
 }
 
 char	*ft_add_newline(char *s1, char *s2)

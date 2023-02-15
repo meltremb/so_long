@@ -6,7 +6,7 @@
 /*   By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 12:34:16 by meltremb          #+#    #+#             */
-/*   Updated: 2023/02/15 09:11:37 by meltremb         ###   ########.fr       */
+/*   Updated: 2023/02/15 10:19:51 by meltremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	mover(mlx_key_data_t keydata, void *param)
 	if (keydata.action == MLX_PRESS)
 	{
 		if (keydata.key == MLX_KEY_ESCAPE)
-			ft_free(d);
+			ft_exit(d, 1, "Game closed\n");
 		if (keydata.key == MLX_KEY_W && is_movable(keydata, d) != 0)
 			d->player_y = d->player_y - d->texture_size;
 		if (keydata.key == MLX_KEY_S && is_movable(keydata, d) != 0)

@@ -6,7 +6,7 @@
 /*   By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 11:01:52 by meltremb          #+#    #+#             */
-/*   Updated: 2023/02/15 09:21:17 by meltremb         ###   ########.fr       */
+/*   Updated: 2023/02/15 10:34:01 by meltremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,9 +87,6 @@ int	valid_path(t_data *d)
 
 int	map_checker(t_data *d)
 {
-	int	x;
-	int	y;
-
 	elem_counter(d);
 	if (d->start_count != 1)
 		ft_exit(d, 0, "ERROR\nWrong amount of starting positions!\n");
@@ -99,17 +96,11 @@ int	map_checker(t_data *d)
 		ft_exit(d, 0, "ERROR\nYou don't have collectibles!\n");
 	else if (d->max_y >= 15 || d->max_x >= 19)
 		ft_exit(d, 0, "ERROR\nyour map is way too big!\n");
-	y = -1;
-	while (++y < d->max_y)
-	{
-		x = -1;
-		while (++x < d->max_x)
-			if (!is_valid_char(d->map_copy[y][x]))
-				ft_exit(d, 0, "ERROR\nNon-valid item detected!\n");
-	}
-	if (!map_shape_check(d))
+	else if (!is_valid_char(d))
+		ft_exit(d, 0, "ERROR\nNon-valid item detected!\n");
+	else if (!map_shape_check(d))
 		ft_exit(d, 0, "ERROR\nYour map isn't closed!\n");
-	if (!valid_path(d))
+	else if (!valid_path(d))
 		ft_exit(d, 0, "ERROR\nNo valid exit path!\n");
 	return (1);
 }
