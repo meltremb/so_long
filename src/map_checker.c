@@ -6,7 +6,7 @@
 /*   By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 11:01:52 by meltremb          #+#    #+#             */
-/*   Updated: 2023/02/07 11:34:11 by meltremb         ###   ########.fr       */
+/*   Updated: 2023/02/15 09:21:17 by meltremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,24 +92,24 @@ int	map_checker(t_data *d)
 
 	elem_counter(d);
 	if (d->start_count != 1)
-		return (ft_exit(0, "ERROR\nWrong amount of starting positions!\n"));
-	if (d->exit_count != 1)
-		return (ft_exit(0, "ERROR\nWrong amount of exits!\n"));
-	if (d->chest_count < 1)
-		return (ft_exit(0, "ERROR\nYou don't have collectibles!\n"));
-	if (d->max_y >= 15 || d->max_x >= 19)
-		return (ft_exit(0, "ERROR\nyour map is way too big!\n"));
+		ft_exit(d, 0, "ERROR\nWrong amount of starting positions!\n");
+	else if (d->exit_count != 1)
+		ft_exit(d, 0, "ERROR\nWrong amount of exits!\n");
+	else if (d->chest_count < 1)
+		ft_exit(d, 0, "ERROR\nYou don't have collectibles!\n");
+	else if (d->max_y >= 15 || d->max_x >= 19)
+		ft_exit(d, 0, "ERROR\nyour map is way too big!\n");
 	y = -1;
 	while (++y < d->max_y)
 	{
 		x = -1;
 		while (++x < d->max_x)
 			if (!is_valid_char(d->map_copy[y][x]))
-				return (ft_exit(0, "ERROR\nNon-valid item detected!\n"));
+				ft_exit(d, 0, "ERROR\nNon-valid item detected!\n");
 	}
 	if (!map_shape_check(d))
-		return (ft_exit(0, "ERROR\nYour map isn't closed!\n"));
+		ft_exit(d, 0, "ERROR\nYour map isn't closed!\n");
 	if (!valid_path(d))
-		return (ft_exit(0, "ERROR\nNo valid exit path!\n"));
+		ft_exit(d, 0, "ERROR\nNo valid exit path!\n");
 	return (1);
 }

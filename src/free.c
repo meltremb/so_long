@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 08:47:26 by meltremb          #+#    #+#             */
-/*   Updated: 2023/02/15 09:23:14 by meltremb         ###   ########.fr       */
+/*   Created: 2023/02/14 14:29:01 by meltremb          #+#    #+#             */
+/*   Updated: 2023/02/15 09:25:38 by meltremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int	main(int argc, char **argv)
+void	ft_free(t_data *d)
 {
-	int		fd;
-	t_data	d;
+	int	i;
 
-	argc = 1;
-	fd = open(argv[1], O_RDONLY);
-	if (fd == -1)
-		ft_exit(&d, 0, "ERROR\nNo map provided!\n");
-	if (!read_map(fd, &d, argv))
-		return (0);
-	init_data(&d);
-	if (!map_checker(&d) || !d.mlx)
-		return (0);
-	print_map(&d);
-	mlx_key_hook(d.mlx, &mover, &d);
-	mlx_loop(d.mlx);
+	i = -1;
+	while (++i < d->max_y)
+	{
+		free(d->map[i]);
+		free(d->map_copy[i]);
+	}
+	mlx_delete_image(d->mlx, d->floor);
+	mlx_delete_image(d->mlx, d->wall);
+	mlx_delete_image(d->mlx, d->dumbass);
+	mlx_delete_image(d->mlx, d->chest);
+	mlx_delete_image(d->mlx, d->door);
+	free(d->map);
+	free(d->map_copy);
+	mlx_terminate(d->mlx);
 }

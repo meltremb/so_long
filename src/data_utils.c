@@ -6,7 +6,7 @@
 /*   By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 10:23:38 by meltremb          #+#    #+#             */
-/*   Updated: 2023/02/07 13:52:52 by meltremb         ###   ########.fr       */
+/*   Updated: 2023/02/15 09:14:43 by meltremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	check_for(t_data *d, char c)
 	return (0);
 }
 
-int	ft_exit(int exit_state, char *message)
+int	ft_exit(t_data *d, int exit_state, char *message)
 {
 	int		i;
 
@@ -49,7 +49,11 @@ int	ft_exit(int exit_state, char *message)
 	while (message[++i] != '\0')
 		write (1, &message[i], 1);
 	if (exit_state == 0)
+	{
+		ft_free(d);
 		return (0);
+	}
+	ft_free(d);
 	return (1);
 }
 

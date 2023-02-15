@@ -6,7 +6,7 @@
 #    By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 11:14:16 by meltremb          #+#    #+#              #
-#    Updated: 2023/02/14 13:32:25 by meltremb         ###   ########.fr        #
+#    Updated: 2023/02/14 14:32:25 by meltremb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,6 +54,7 @@ SRCS	=	src/so_long.c\
 				src/get_next_line_bonus.c\
 				src/get_next_line_utils_bonus.c\
 				src/print_moves.c\
+				src/free.c\
 			
 OBJS	=	$(patsubst $(SRCDIR)%.c,$(OBJDIR)%.o,$(SRCS))
 
