@@ -6,7 +6,7 @@
 /*   By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 11:11:29 by meltremb          #+#    #+#             */
-/*   Updated: 2023/02/15 11:28:36 by meltremb         ###   ########.fr       */
+/*   Updated: 2023/02/20 12:38:47 by meltremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 # include <stdlib.h>
 # include <memory.h>
 # include <fcntl.h>
+# include "../Libft/libft.h"
 # include "../MLX42/include/MLX42/MLX42.h"
-# include "../src/get_next_line_bonus.h"
 
 typedef struct s_data
 {
 	int			texture_size;
-	int			max_x;
-	int			max_y;
+	size_t		max_x;
+	size_t		max_y;
 	int			width;
 	int			height;
 	int			chest_count;
@@ -65,13 +65,9 @@ void		print_map(t_data *d);
 int			check_for(t_data *d, char c);
 int			map_shape_check(t_data *d);
 void		ft_bzero(void *s, size_t n);
-char		*ft_strdup(char *s1);
-void		*ft_calloc(size_t count, size_t size);
 int			ft_exit(t_data *d, int exit_state, char *message);
 int			is_valid_char(t_data *d);
 char		*ft_add_newline(char *s1, char *s2);
-int			printc(char c);
-int			printd(int nb);
 void		print_nb_moves(t_data *d);
 int			ber_check(char *map_name);
 

@@ -6,7 +6,7 @@
 /*   By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 11:57:44 by meltremb          #+#    #+#             */
-/*   Updated: 2023/02/07 11:34:11 by meltremb         ###   ########.fr       */
+/*   Updated: 2023/02/20 11:39:57 by meltremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	print_map(t_data *d)
 {
-	int	x;
-	int	y;
+	size_t	x;
+	size_t	y;
 
 	y = -1;
 	while (++y < d->max_y)

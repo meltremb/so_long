@@ -6,7 +6,7 @@
 #    By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 11:14:16 by meltremb          #+#    #+#              #
-#    Updated: 2023/02/14 14:32:25 by meltremb         ###   ########.fr        #
+#    Updated: 2023/02/20 12:45:53 by meltremb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,9 @@ CFLAGS	=	-Wall -Werror -Wextra
 RM		=	rm -rf
 
 # Libraries
-LIBMLX	=	MLX42/libmlx42.a -lglfw -L "/Users/$$USER/.brew/opt/glfw/lib/"
+LIBMLX	=	MLX42/build/libmlx42.a -lglfw -L "/Users/$$USER/.brew/opt/glfw/lib/"
+LDIR	=	Libft/
+LIBFT	=	libft.a
 
 # Dir and file names
 NAME	=	so_long
@@ -51,8 +53,6 @@ SRCS	=	src/so_long.c\
 				src/map_checker.c\
 				src/map_reader.c\
 				src/player_mover.c\
-				src/get_next_line_bonus.c\
-				src/get_next_line_utils_bonus.c\
 				src/print_moves.c\
 				src/free.c\
 			
@@ -62,15 +62,19 @@ OBJS	=	$(patsubst $(SRCDIR)%.c,$(OBJDIR)%.o,$(SRCS))
 #                                 TARGETS                                      #
 #------------------------------------------------------------------------------#
 
-all: $(NAME)
+all: $(LDIR)/$(LIBFT) $(NAME)
 
 # Generates output file
-$(NAME): $(OBJS)
-	$(HIDE)$(CC) $(CFLAGS) -o $@ $^ $(LIBMLX)
+$(NAME): $(OBJS) $(LDIR)/$(LIBFT)
+	$(HIDE)$(CC) $(CFLAGS) -o $@ $^ $(LIBMLX) $(LDIR)/$(LIBFT)
 
 $(OBJS): $(OBJDIR)%.o : $(SRCDIR)%.c
 	$(HIDE)mkdir -p $(OBJDIR)
 	$(HIDE)$(CC) $(CFLAGS) -c $< -o $@
+
+# Generates libft
+$(LDIR)/$(LIBFT):
+			$(HIDE)$(MAKE) -C $(LDIR)
 
 brew:
 	curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh | zsh
@@ -81,10 +85,12 @@ glfw:
 # Removes objects
 clean:
 	$(HIDE)$(RM) $(OBJDIR)/$(OBJS)
+	$(HIDE)$(MAKE) -C $(LDIR) $(MAKE) clean
 
 # Removes objects and executables
 fclean: clean
 	$(HIDE)$(RM) $(NAME)
+	$(HIDE)$(MAKE) -C $(LDIR) $(MAKE) fclean
 
 # Removes objects and executables and remakes
 re: fclean all

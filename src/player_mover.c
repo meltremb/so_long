@@ -6,7 +6,7 @@
 /*   By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 12:34:16 by meltremb          #+#    #+#             */
-/*   Updated: 2023/02/15 10:19:51 by meltremb         ###   ########.fr       */
+/*   Updated: 2023/02/20 11:41:54 by meltremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	init_start_pos(t_data *d)
 {
-	int	x;
-	int	y;
+	size_t	x;
+	size_t	y;
 
 	y = -1;
 	while (++y < d->max_y)
@@ -36,8 +36,8 @@ int	init_start_pos(t_data *d)
 
 int	is_movable(mlx_key_data_t keydata, t_data *d)
 {
-	int	x;
-	int	y;
+	size_t	x;
+	size_t	y;
 
 	x = d->player_x / d->texture_size;
 	y = d->player_y / d->texture_size;
@@ -58,8 +58,8 @@ int	is_movable(mlx_key_data_t keydata, t_data *d)
 
 void	is_item_or_door(t_data *d)
 {
-	int	x;
-	int	y;
+	size_t	x;
+	size_t	y;
 
 	x = d->player_x / d->texture_size;
 	y = d->player_y / d->texture_size;
@@ -85,7 +85,7 @@ void	mover(mlx_key_data_t keydata, void *param)
 	if (keydata.action == MLX_PRESS)
 	{
 		if (keydata.key == MLX_KEY_ESCAPE)
-			ft_exit(d, 1, "Game closed\n");
+			ft_exit(d, 0, "Game closed\n");
 		if (keydata.key == MLX_KEY_W && is_movable(keydata, d) != 0)
 			d->player_y = d->player_y - d->texture_size;
 		if (keydata.key == MLX_KEY_S && is_movable(keydata, d) != 0)

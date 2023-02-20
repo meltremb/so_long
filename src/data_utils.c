@@ -6,7 +6,7 @@
 /*   By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 10:23:38 by meltremb          #+#    #+#             */
-/*   Updated: 2023/02/15 11:52:01 by meltremb         ###   ########.fr       */
+/*   Updated: 2023/02/20 11:39:09 by meltremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ mlx_image_t	*make_image(t_data *d, char *path)
 
 int	check_for(t_data *d, char c)
 {
-	int		x;
-	int		y;
+	size_t	x;
+	size_t	y;
 
 	y = -1;
 	while (++y < d->max_y)

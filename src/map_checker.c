@@ -6,7 +6,7 @@
 /*   By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 11:01:52 by meltremb          #+#    #+#             */
-/*   Updated: 2023/02/15 10:55:48 by meltremb         ###   ########.fr       */
+/*   Updated: 2023/02/20 11:40:50 by meltremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	elem_counter(t_data *d)
 {
-	int	x;
-	int	y;
+	size_t	x;
+	size_t	y;
 
 	y = -1;
 	while (++y < d->max_y)
@@ -35,8 +35,8 @@ void	elem_counter(t_data *d)
 
 int	map_shape_check(t_data *d)
 {
-	int	x;
-	int	y;
+	size_t	x;
+	size_t	y;
 
 	y = -1;
 	while (++y < d->max_y)
@@ -72,8 +72,8 @@ void	flood_fill(t_data *d, int x, int y)
 
 int	valid_path(t_data *d)
 {
-	int	x;
-	int	y;
+	size_t	x;
+	size_t	y;
 
 	init_start_pos(d);
 	x = d->player_x / d->texture_size;
@@ -94,7 +94,7 @@ int	map_checker(t_data *d)
 		ft_exit(d, 0, "ERROR\nWrong amount of exits!\n");
 	else if (d->chest_count < 1)
 		ft_exit(d, 0, "ERROR\nYou don't have collectibles!\n");
-	if (d->max_y >= 15 || d->max_x >= 19)
+	else if (d->max_y >= 15 || d->max_x >= 19)
 		ft_exit(d, 0, "ERROR\nyour map is way too big!\n");
 	else if (!is_valid_char(d))
 		ft_exit(d, 0, "ERROR\nNon-valid item detected!\n");

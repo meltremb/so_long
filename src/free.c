@@ -6,7 +6,7 @@
 /*   By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 14:29:01 by meltremb          #+#    #+#             */
-/*   Updated: 2023/02/15 11:57:45 by meltremb         ###   ########.fr       */
+/*   Updated: 2023/02/20 12:59:01 by meltremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,19 @@ void	ft_free_all(t_data *d)
 {
 	int	i;
 
-	i = -1;
-	while (d->map && d->map[++i])
-		d->map[i] = free_and_null(d->map[i]);
-	i = -1;
-	while (d->map_copy && d->map_copy[++i])
-		d->map_copy[i] = free_and_null(d->map[i]);
-	d->map = free_and_null(d->map);
-	d->map = free_and_null(d->map_copy);
 	ft_free_image(d->mlx, d->floor);
 	ft_free_image(d->mlx, d->wall);
 	ft_free_image(d->mlx, d->dumbass);
 	ft_free_image(d->mlx, d->chest);
 	ft_free_image(d->mlx, d->door);
+	i = -1;
+	while (d->map && d->map[++i])
+		d->map[i] = free_and_null(d->map[i]);
+	i = -1;
+	while (d->map_copy && d->map_copy[++i])
+		d->map_copy[i] = free_and_null(d->map_copy[i]);
+	d->map = free_and_null(d->map);
+	d->map_copy = free_and_null(d->map_copy);
 	if (d->mlx)
 		mlx_terminate(d->mlx);
 }
