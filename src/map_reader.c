@@ -6,7 +6,7 @@
 /*   By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 12:36:40 by meltremb          #+#    #+#             */
-/*   Updated: 2023/02/20 14:18:55 by meltremb         ###   ########.fr       */
+/*   Updated: 2023/02/20 14:27:57 by meltremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ber_check(char *map_name)
 
 	dot = ft_strrchr(map_name, '.');
 	if (ft_strncmp(dot, ".ber", 4) == 0)
-			return (1);
+		return (1);
 	return (0);
 }
 
