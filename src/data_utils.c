@@ -6,7 +6,7 @@
 /*   By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 10:23:38 by meltremb          #+#    #+#             */
-/*   Updated: 2023/02/20 11:39:09 by meltremb         ###   ########.fr       */
+/*   Updated: 2023/02/20 14:02:42 by meltremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	check_for(t_data *d, char c)
 
 int	ft_exit(t_data *d, int exit_state, char *message)
 {
-	printf("%s", message);
+	ft_printf("%s", message);
 	ft_free_all(d);
 	if (exit_state == 0)
 		exit(0);

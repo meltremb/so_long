@@ -6,7 +6,7 @@
 /*   By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 14:29:01 by meltremb          #+#    #+#             */
-/*   Updated: 2023/02/20 12:59:01 by meltremb         ###   ########.fr       */
+/*   Updated: 2023/02/20 14:01:07 by meltremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_free_image(mlx_t *mlx, mlx_image_t *image)
 
 void	ft_free_all(t_data *d)
 {
-	int	i;
+	size_t	i;
 
 	ft_free_image(d->mlx, d->floor);
 	ft_free_image(d->mlx, d->wall);

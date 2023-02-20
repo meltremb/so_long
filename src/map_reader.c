@@ -6,7 +6,7 @@
 /*   By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 12:36:40 by meltremb          #+#    #+#             */
-/*   Updated: 2023/02/20 12:38:24 by meltremb         ###   ########.fr       */
+/*   Updated: 2023/02/20 14:18:55 by meltremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,16 @@ int	ber_check(char *map_name)
 
 int	get_max(int fd, int i, t_data *d)
 {
-	d->max_x = ft_strlen(get_next_line(fd)) - 1;
-	while (get_next_line(fd))
-		d->max_y = ++i;
+	char	*temp;
+
+	temp = get_next_line(fd);
+	d->max_x = ft_strlen(temp) - 1;
+	while (temp)
+	{
+		d->max_y = i++;
+		free(temp);
+		temp = get_next_line(fd);
+	}
 	close(fd);
 	i = -1;
 	return (i);
