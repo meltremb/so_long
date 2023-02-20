@@ -6,7 +6,7 @@
 /*   By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 11:11:29 by meltremb          #+#    #+#             */
-/*   Updated: 2023/02/20 13:34:32 by meltremb         ###   ########.fr       */
+/*   Updated: 2023/02/20 14:56:15 by meltremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include <memory.h>
 # include <fcntl.h>
-# include "../Libft/libft.h"
+# include "../reworked-libft/libft.h"
 # include "../MLX42/include/MLX42/MLX42.h"
 
 typedef struct s_data

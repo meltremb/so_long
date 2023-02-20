@@ -4,3 +4,6 @@
 [submodule "Libft"]
 	path = Libft
 	url = git@github.com:meltremb/reworked-libft.git
+[submodule "reworked-libft"]
+	path = reworked-libft
+	url = git@github.com:meltremb/reworked-libft.git

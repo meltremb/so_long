@@ -6,7 +6,7 @@
 #    By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 11:14:16 by meltremb          #+#    #+#              #
-#    Updated: 2023/02/20 12:45:53 by meltremb         ###   ########.fr        #
+#    Updated: 2023/02/20 14:55:19 by meltremb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ RM		=	rm -rf
 
 # Libraries
 LIBMLX	=	MLX42/build/libmlx42.a -lglfw -L "/Users/$$USER/.brew/opt/glfw/lib/"
-LDIR	=	Libft/
+LDIR	=	reworked-libft/
 LIBFT	=	libft.a
 
 # Dir and file names
