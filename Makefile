@@ -6,7 +6,7 @@
 #    By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 11:14:16 by meltremb          #+#    #+#              #
-#    Updated: 2023/02/22 12:44:51 by meltremb         ###   ########.fr        #
+#    Updated: 2023/02/22 13:41:04 by meltremb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,8 +63,7 @@ OBJS	=	$(patsubst $(SRCDIR)%.c,$(OBJDIR)%.o,$(SRCS))
 #------------------------------------------------------------------------------#
 
 all: $(LDIR)/$(LIBFT) $(NAME) cmake
-	git submodule update --init
-	cd MLX42; $(HIDE)cmake -B build && $(HIDE)cmake --build build -j4
+	cd MLX42; cmake -B build && cmake --build build -j4
 
 # Generates output file
 $(NAME): $(OBJS) $(LDIR)/$(LIBFT)
@@ -75,17 +74,20 @@ $(OBJS): $(OBJDIR)%.o : $(SRCDIR)%.c
 	$(HIDE)$(CC) $(CFLAGS) -c $< -o $@
 
 # Generates libft
-$(LDIR)/$(LIBFT):
+$(LDIR)/$(LIBFT): submodule
 			$(HIDE)$(MAKE) -C $(LDIR)
 
+submodule:
+	$(HIDE)git submodule update --init
+	
 brew:
-	$(HIDE)brew --version || $(HIDE)curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh
+	$(HIDE)brew --version || curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh
 
 glfw: brew
 	$(HIDE)brew install glfw
 
 cmake : glfw
-	$(HIDE)cmake  | $(HIDE)brew install cmake
+	$(HIDE)cmake --version | brew install cmake
 	
 # Removes objects
 clean: 

@@ -6,7 +6,7 @@
 /*   By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 08:47:26 by meltremb          #+#    #+#             */
-/*   Updated: 2023/02/22 12:10:05 by meltremb         ###   ########.fr       */
+/*   Updated: 2023/02/22 13:04:23 by meltremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ int	main(int argc, char **argv)
 
 	ft_null(&d);
 	if (argc != 2)
-		ft_exit(&d, 0, "ERROR\nNo map provided!");
+		ft_exit(&d, 0, "ERROR\nNo map provided");
 	fd = open(argv[1], O_RDONLY);
 	if (!fd)
-		ft_exit(&d, 0, "ERROR\nYour dumbass can't spell!\n");
+		ft_exit(&d, 0, "ERROR\nInvalid file name\n");
 	if (ber_check(&d, argv[1]) == 0)
-		ft_exit(&d, 0, "ERROR\nThe map isn't a .ber file!");
+		ft_exit(&d, 0, "ERROR\nThe map isn't a .ber file");
 	if (!read_map(fd, &d, argv))
 		return (0);
 	init_data(&d);
@@ -33,4 +33,6 @@ int	main(int argc, char **argv)
 	print_map(&d);
 	mlx_key_hook(d.mlx, &mover, &d);
 	mlx_loop(d.mlx);
+	mlx_terminate(d.mlx);
+	ft_exit(&d, 0, "Game closed\n");
 }

@@ -6,7 +6,7 @@
 /*   By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 10:23:38 by meltremb          #+#    #+#             */
-/*   Updated: 2023/02/20 14:02:42 by meltremb         ###   ########.fr       */
+/*   Updated: 2023/02/22 13:02:17 by meltremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	init_data(t_data *d)
 	d->start_count = 0;
 	d->width = d->texture_size * d->max_x;
 	d->height = d->texture_size * d->max_y;
-	d->mlx = mlx_init(d->width, d->height, "The Lost Dumbass", false);
+	d->mlx = mlx_init(d->width, d->height, "So long", false);
 	d->floor = make_image(d, "assets/floor.xpm42");
 	d->wall = make_image(d, "assets/wall.xpm42");
 	d->dumbass = make_image(d, "assets/dumbass.xpm42");
