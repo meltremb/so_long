@@ -6,7 +6,7 @@
 #    By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 11:14:16 by meltremb          #+#    #+#              #
-#    Updated: 2023/02/22 13:41:04 by meltremb         ###   ########.fr        #
+#    Updated: 2023/02/22 13:48:07 by meltremb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,7 @@ OBJS	=	$(patsubst $(SRCDIR)%.c,$(OBJDIR)%.o,$(SRCS))
 #                                 TARGETS                                      #
 #------------------------------------------------------------------------------#
 
-all: $(LDIR)/$(LIBFT) $(NAME) cmake
+all: $(NAME) cmake
 	cd MLX42; cmake -B build && cmake --build build -j4
 
 # Generates output file
@@ -78,16 +78,16 @@ $(LDIR)/$(LIBFT): submodule
 			$(HIDE)$(MAKE) -C $(LDIR)
 
 submodule:
-	$(HIDE)git submodule update --init
+	git submodule update --init
 	
 brew:
-	$(HIDE)brew --version || curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh
+	brew --version || curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh
 
 glfw: brew
-	$(HIDE)brew install glfw
+	brew install glfw
 
 cmake : glfw
-	$(HIDE)cmake --version | brew install cmake
+	cmake --version | brew install cmake
 	
 # Removes objects
 clean: 
