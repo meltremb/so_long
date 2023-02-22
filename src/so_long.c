@@ -6,7 +6,7 @@
 /*   By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 08:47:26 by meltremb          #+#    #+#             */
-/*   Updated: 2023/02/22 13:04:23 by meltremb         ###   ########.fr       */
+/*   Updated: 2023/02/22 14:46:44 by meltremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 	fd = open(argv[1], O_RDONLY);
 	if (!fd)
 		ft_exit(&d, 0, "ERROR\nInvalid file name\n");
-	if (ber_check(&d, argv[1]) == 0)
+	if (ber_check(fd, &d, argv[1]) == 0)
 		ft_exit(&d, 0, "ERROR\nThe map isn't a .ber file");
 	if (!read_map(fd, &d, argv))
 		return (0);

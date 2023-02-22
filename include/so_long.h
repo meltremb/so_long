@@ -6,7 +6,7 @@
 /*   By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 11:11:29 by meltremb          #+#    #+#             */
-/*   Updated: 2023/02/22 11:59:10 by meltremb         ###   ########.fr       */
+/*   Updated: 2023/02/22 14:46:45 by meltremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,6 @@ int			ft_exit(t_data *d, int exit_state, char *message);
 int			is_valid_char(t_data *d);
 char		*ft_add_newline(char *s1, char *s2);
 void		print_nb_moves(t_data *d);
-int			ber_check(t_data *d, char *map_name);
+int			ber_check(int fd, t_data *d, char *map_name);
 
 #endif
