@@ -6,7 +6,7 @@
 #    By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 11:14:16 by meltremb          #+#    #+#              #
-#    Updated: 2023/02/22 11:33:07 by meltremb         ###   ########.fr        #
+#    Updated: 2023/02/22 12:44:51 by meltremb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,6 +63,7 @@ OBJS	=	$(patsubst $(SRCDIR)%.c,$(OBJDIR)%.o,$(SRCS))
 #------------------------------------------------------------------------------#
 
 all: $(LDIR)/$(LIBFT) $(NAME) cmake
+	git submodule update --init
 	cd MLX42; $(HIDE)cmake -B build && $(HIDE)cmake --build build -j4
 
 # Generates output file
