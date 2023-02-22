@@ -6,7 +6,7 @@
 #    By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 11:14:16 by meltremb          #+#    #+#              #
-#    Updated: 2023/02/22 15:21:24 by meltremb         ###   ########.fr        #
+#    Updated: 2023/02/22 15:25:29 by meltremb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,7 @@ OBJS	=	$(patsubst $(SRCDIR)%.c,$(OBJDIR)%.o,$(SRCS))
 #                                 TARGETS                                      #
 #------------------------------------------------------------------------------#
 
-all: $(LDIR)/$(LIBFT) $(NAME) cmake
+all: $(LDIR)/$(LIBFT) submodule $(NAME) cmake
 
 # Generates output file
 $(NAME): $(OBJS) $(LDIR)/$(LIBFT)
@@ -73,7 +73,7 @@ $(OBJS): $(OBJDIR)%.o : $(SRCDIR)%.c
 	$(HIDE)$(CC) $(CFLAGS) -c $< -o $@
 
 # Generates libft
-$(LDIR)/$(LIBFT): submodule
+$(LDIR)/$(LIBFT):
 			$(HIDE)$(MAKE) -C $(LDIR)
 
 submodule:
