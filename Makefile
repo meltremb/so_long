@@ -6,7 +6,7 @@
 #    By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 11:14:16 by meltremb          #+#    #+#              #
-#    Updated: 2023/02/22 13:50:09 by meltremb         ###   ########.fr        #
+#    Updated: 2023/02/22 15:21:24 by meltremb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,6 @@ OBJS	=	$(patsubst $(SRCDIR)%.c,$(OBJDIR)%.o,$(SRCS))
 #------------------------------------------------------------------------------#
 
 all: $(LDIR)/$(LIBFT) $(NAME) cmake
-	cd MLX42; cmake -B build && cmake --build build -j4
 
 # Generates output file
 $(NAME): $(OBJS) $(LDIR)/$(LIBFT)
@@ -78,7 +77,7 @@ $(LDIR)/$(LIBFT): submodule
 			$(HIDE)$(MAKE) -C $(LDIR)
 
 submodule:
-	git submodule update --init
+	cd MLX42; cmake -B build && cmake --build build -j4 || git submodule update --init
 	
 brew:
 	brew --version || curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh
