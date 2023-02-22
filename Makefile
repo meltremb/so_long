@@ -6,7 +6,7 @@
 #    By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 11:14:16 by meltremb          #+#    #+#              #
-#    Updated: 2023/02/22 15:25:29 by meltremb         ###   ########.fr        #
+#    Updated: 2023/02/22 15:28:09 by meltremb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,8 +76,11 @@ $(OBJS): $(OBJDIR)%.o : $(SRCDIR)%.c
 $(LDIR)/$(LIBFT):
 			$(HIDE)$(MAKE) -C $(LDIR)
 
-submodule:
-	cd MLX42; cmake -B build && cmake --build build -j4 || git submodule update --init
+update:
+	git submodule update --init
+	
+submodule: update
+	cd MLX42; cmake -B build && cmake --build build -j4
 	
 brew:
 	brew --version || curl -fsSL https://rawgit.com/kube/42homebrew/master/install.sh
