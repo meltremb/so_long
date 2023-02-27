@@ -6,7 +6,7 @@
 /*   By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 11:01:52 by meltremb          #+#    #+#             */
-/*   Updated: 2023/02/22 13:03:09 by meltremb         ###   ########.fr       */
+/*   Updated: 2023/02/27 09:26:29 by meltremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,6 @@ int	map_checker(t_data *d)
 		ft_exit(d, 0, "ERROR\nWrong amount of exits\n");
 	else if (d->chest_count < 1)
 		ft_exit(d, 0, "ERROR\nYou don't have collectibles\n");
-	else if (d->max_y >= 15 || d->max_x >= 19)
-		ft_exit(d, 0, "ERROR\nYour map exceeds the boundaries of the screen\n");
 	else if (!is_valid_char(d))
 		ft_exit(d, 0, "ERROR\nNon-valid item detected\n");
 	else if (!map_shape_check(d))

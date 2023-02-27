@@ -6,7 +6,7 @@
 /*   By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 12:36:40 by meltremb          #+#    #+#             */
-/*   Updated: 2023/02/22 15:09:32 by meltremb         ###   ########.fr       */
+/*   Updated: 2023/02/27 09:26:30 by meltremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ int	get_max(int fd, int i, t_data *d)
 		temp = get_next_line(fd);
 	}
 	close(fd);
+	if (d->max_y >= 15 || d->max_x >= 19)
+		ft_exit(d, 0, "ERROR\nYour map exceeds the boundaries of the screen\n");
 	i = -1;
 	return (i);
 }

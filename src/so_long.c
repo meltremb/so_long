@@ -6,7 +6,7 @@
 /*   By: meltremb <meltremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 08:47:26 by meltremb          #+#    #+#             */
-/*   Updated: 2023/02/22 14:46:44 by meltremb         ###   ########.fr       */
+/*   Updated: 2023/02/27 09:23:24 by meltremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ int	main(int argc, char **argv)
 	print_map(&d);
 	mlx_key_hook(d.mlx, &mover, &d);
 	mlx_loop(d.mlx);
-	mlx_terminate(d.mlx);
-	ft_exit(&d, 0, "Game closed\n");
+	if (d.mlx)
+		ft_exit(&d, 0, "Game closed\n");
 }
